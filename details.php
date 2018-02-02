@@ -17,7 +17,7 @@
 <?php include "./includes/styles.html" ?>
 </head>
 <body>	
-  <?php include "./includes/nav.html" ?>
+  <?php include "./includes/nav.php" ?>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4"><?= $movie["movies_title"]?></h1>
@@ -27,10 +27,11 @@
   <div class="container">
     <div class="row">
         <p class="col-4"><?= $movie["movies_storyline"] ?></p>
-        <img class="col-8" src="./images/<?= $movie["movies_cover"] ?>" alt="<?= $movie["movies_title"] ?>">
+        <div class="col-2">
+          <img class="" src="./images/<?= $movie["movies_cover"] ?>" alt="<?= $movie["movies_title"] ?>">
+        </div>
     </div>
   </div>
-
   <?php include "./includes/scripts.html" ?>
 </body>
 </html>

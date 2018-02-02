@@ -5,11 +5,15 @@
 
   # Includes 
   require_once("./admin/phpscripts/read.php"); // This runs our query and exposes getAll() function
-
-  # Query & Variables
   $tbl = "tbl_movies"; // Global variable for the table we wish to run our queries on.  See ./connect.php
 
-  $getMovies = getAll($tbl); // Get all movies 
+  # Check if index or filter
+  if(isSet($_GET["filter"])) {
+    $filter = $_GET["filter"];
+    $getMovies = filterType($filter, $tbl, "tbl_mov_genre", "tbl_genre");
+  } else {
+    $getMovies = getAll($tbl); // Get all movies 
+  }
 
 ?>
 <!doctype html>
@@ -20,7 +24,7 @@
   <?php @include "./includes/styles.html" ?>
 </head>
 <body>
-  <?php include "./includes/nav.html" ?>
+  <?php include "./includes/nav.php" ?>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <p class="lead">Welcome to the Finest Selection of Blu-rays on the internets!</p>
@@ -33,7 +37,7 @@
   if(!is_string($getMovies)) {
     while($row = mysqli_fetch_array(($getMovies))) {
       echo "
-      <div class=\"col-4\">
+      <div class=\"col-md-4 col-sm-6\">
       <div class=\"card mb-3\">
         <a href=\"./details.php?movie={$row["movies_id"]}\">
           <img src=\"images/{$row["movies_cover"]}\" alt=\"{$row["movies_title"]}\" class=\"card-img-top\">
