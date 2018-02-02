@@ -25,7 +25,23 @@
       mysqli_fetch_array($result) : "There was an error accessing this info.  Please contact you admin";
   }
 
+  // Filter based off genre 
+  function filterType (String $filter, $tbl1, $tbl2, $tbl3) {
+    include('connect.php'); // Grab Credentials and DB Connections ($link)
 
+    $filter = ucfirst($filter);
 
+    $query = "SELECT mov.*  FROM {$tbl1} mov
+    JOIN {$tbl2} mg ON mov.movies_id = mg.movies_id
+    JOIN {$tbl3} g ON mg.genre_id = g.genre_id
+    WHERE g.genre_name = \"{$filter}\";"; // Query String with the $table param.
 
+    $result = mysqli_query($link, $query);
+
+    
+    return $result ?
+      $result: "There was an error accessing this info.  Please contact you admin";
+
+    mysqli($link);
+  }
 ?>
