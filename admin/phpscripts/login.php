@@ -17,9 +17,11 @@
       
       $_SESSION["user_id"] = $id;
       $_SESSION["user_name"] = $found_user["user_fname"];
+      $_SESSION["last_signin"] = $found_user["user_date"] ? $found_user["user_date"] : "No Sign In Found";
       
       if($id) {
-        $updateQuery = "UPDATE tbl_user SET user_ip = '{$ip}' WHERE user_id = {$id}";
+        // $updateQuery = "UPDATE tbl_user SET user_ip = '{$ip}' WHERE user_id = {$id}"; Literally what are we doing with this IP??
+        $updateQuery = "UPDATE tbl_user SET user_date = now()";
         $updateResult = mysqli_query($link, $updateQuery);
       }
 

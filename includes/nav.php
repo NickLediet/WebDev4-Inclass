@@ -13,16 +13,16 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item <?= $filter === "action" ? "active" : "" ?>">
-        <a class="nav-link " href="index.php?filter=action">Action</a>
+        <a class="nav-link " href="<?= $_SERVER["DOCUMENT_ROOT"]."\index.php?filter=action"?>">Action</a>
       </li>
       <li class="nav-item <?= $filter === "comedy" ? "active" : "" ?>">
-        <a class="nav-link" href="index.php?filter=comedy">Comedy</a>
+        <a class="nav-link" href="<?= $_SERVER["DOCUMENT_ROOT"]?>/index.php?filter=comedy">Comedy</a>
       </li>
       <li class="nav-item <?= $filter === "family" ? "active" : "" ?>">
-        <a class="nav-link" href="index.php?filter=family">Family</a>
+        <a class="nav-link" href="<?= $_SERVER["DOCUMENT_ROOT"]?>/index.php?filter=family">Family</a>
       </li>
       <li class="nav-item <?= !$filter ? "active": "" ?>">
-        <a class="nav-link" href="index.php">All <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?= $_SERVER["DOCUMENT_ROOT"]?>/index.php">All <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
