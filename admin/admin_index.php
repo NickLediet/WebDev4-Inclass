@@ -28,6 +28,8 @@
       }
     ?></h2>
     <h3 class="text-center mt-4">Your last sucessful sigin was <span class="text-primary"><?= date('M j Y g:i A', strtotime($_SESSION["last_signin"])) ?></span></h3>
+    <br >
+    <a href="admin_createuser.php">Create User</a>
   </div>
 </body>
 </html>
