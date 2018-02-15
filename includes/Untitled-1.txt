@@ -1,0 +1,9 @@
+INSERT INTO tbl_user (user_fname, user_name, user_pass, user_email)
+  VALUES ("Nicholas", "n_lediet", "root", "test@test.ca")
+
+SELECT * FROM tbl_user;
+
+
+select * from tbl_user user
+  where user.user_email = "test@test.ca"
+  AND user.user_pass = "root";
