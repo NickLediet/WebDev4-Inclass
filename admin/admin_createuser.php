@@ -8,9 +8,9 @@
   if(isset($_POST['submit'])) {
     $fname = trim($_POST["fname"]);
     $username = trim($_POST["username"]);
-    $password = trim($_POST["password"]);
     $email = trim($_POST["email"]);
     $userlvl = $_POST["userlvl"];
+    $password =  generate_password();
     if(empty($userlvl)) {
       $message = "Please select a user level";
     } else {
@@ -23,6 +23,7 @@
       );
       // $user = implode(',', $user);
       $result = createUser($user);
+
       $message = $result;
     }
   }
@@ -55,10 +56,6 @@
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" name="email" id="email" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>  
-          <input type="password" name="password" id="password" class="form-control" required>
         </div>
         <div class="form-group">
           <select name="userlvl" id="userlvl" required>
