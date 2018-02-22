@@ -5,7 +5,9 @@
     
     # Sanitization
     $username = mysqli_real_escape_string($link, $username);
-    $password = mysqli_real_escape_string($link, $password);
+    $password = $hashedPassword = password_hash( // Rehash password to check encrypted password
+      mysqli_real_escape_string($link, $password)
+      , PASSWORD_BCRYPT, $hash_options);
 
     $loginQuery = "SELECT * FROM tbl_user WHERE user_email = '{$username}' AND user_pass = '{$password}'";
 
