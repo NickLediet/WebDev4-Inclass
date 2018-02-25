@@ -8,8 +8,7 @@
 	// Password hashing credentials 
 	// Explained https://stackoverflow.com/questions/4795385/how-do-you-use-bcrypt-for-hashing-passwords-in-php
 	$hash_options = [
-		'cost' => 11,
-		'salt' => 'superscecretpasswordsalt',
+		'cost' => 11
 	];
 
 	// // Email Options
