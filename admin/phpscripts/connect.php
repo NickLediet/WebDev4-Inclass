@@ -6,9 +6,10 @@
 	# Setting timezone.
 	date_default_timezone_set('EST');
 	// Password hashing credentials 
-	// Explained https://stackoverflow.com/questions/4795385/how-do-you-use-bcrypt-for-hashing-passwords-in-php
-	$hash_options = [
-		'cost' => 11
+	// Explained https://gist.github.com/dzuelke/972386
+
+	$options = [
+		'salt' => substr(strtr(base64_encode(openssl_random_pseudo_bytes(22)), '+', '.'), 0, 22),
 	];
 
 	// // Email Options

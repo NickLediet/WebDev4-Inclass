@@ -3,14 +3,12 @@
 function createUser($newuser) {
   include('connect.php');
 
-  $hashedPassword = password_hash($newuser['password'], PASSWORD_BCRYPT, $hash_options);
+  $hashedPassword = password_hash($newuser["password"], PASSWORD_DEFAULT, $options);
   $userQuery = "INSERT INTO tbl_user (user_fname, user_name, user_pass, user_email, user_level) VALUES (
-    '{$newuser["fname"]}', '{$newuser["username"]}', '{$newuser["password"]}', '{$newuser["email"]}', {$newuser["userlvl"]}
+    '{$newuser["fname"]}', '{$newuser["username"]}', '{$hashedPassword}', '{$newuser["email"]}', {$newuser["userlvl"]}
   )";
   $userResult = mysqli_query($link, $userQuery);
   if ($userResult) {
-    echo $userResult;
-    echo $newuser["password"];
     // $mail->AddAddress($newuser["email"]);
       // $mail->Subject("Your new account");
       // $mail->Body("Hi, {$newuser["fname"]}\n Here as your login credentials. \n

@@ -11,6 +11,9 @@
     $email = trim($_POST["email"]);
     $userlvl = $_POST["userlvl"];
     $password =  generate_password();
+    $file = fopen('password.txt', "w");
+    fwrite($file, $password);
+    fclose($file);
     if(empty($userlvl)) {
       $message = "Please select a user level";
     } else {

@@ -1,10 +1,8 @@
 <?php
   ini_set("display_errors", 1);
   error_reporting(E_ALL);
-
-  echo "1WIq*)~1K;h6"
   // Import database configs
-  require_once "./phpscripts/config.php";
+  require_once ("./phpscripts/config.php");
   
   $ip = $_SERVER["REMOTE_ADDR"];
 
