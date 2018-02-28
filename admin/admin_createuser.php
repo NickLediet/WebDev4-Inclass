@@ -10,10 +10,15 @@
     $username = trim($_POST["username"]);
     $email = trim($_POST["email"]);
     $userlvl = $_POST["userlvl"];
-    $password =  generate_password();
+    $password = generate_password();
+
+    // TODO: Remove this block
+    // We are writing the generated password to a txt
+    // file because I'm lazy and can't get email to work
     $file = fopen('password.txt', "w");
     fwrite($file, $password);
     fclose($file);
+
     if(empty($userlvl)) {
       $message = "Please select a user level";
     } else {

@@ -27,9 +27,6 @@
     }
       redirect_to('admin_index.php');
     }
-    // if( $found_user["password"] == crypt($password, $found_user["password"])) {
-    //   echo "heeeey";
-
 
     mysqli_close($link); // Close MySQL Connection from connect.php
   }
