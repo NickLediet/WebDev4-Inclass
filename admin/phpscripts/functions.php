@@ -22,4 +22,15 @@
 		return $str;
 	}
 	
+	// // https://stackoverflow.com/questions/10351981/php-hours-difference-hhmm-format
+	// function timeDiff($lastTime) {
+	// 	// $firstTime=strtotime($firstTime);
+	// 	$firstTime = time();
+	// 	echo $firstTime . "<br>";
+	// 	$lastTime=strtotime($lastTime);
+	// 	echo $lastTime . "<br>";
+	// 	$timeDiff=$lastTime-$firstTime;
+	// 	echo date()
+  //   return $timeDiff;
+	// }
 ?>

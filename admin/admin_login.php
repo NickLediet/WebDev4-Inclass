@@ -12,7 +12,7 @@
     $username = trim($_POST["username"]); // trim function allows us to remove trailing whitespace from copy and pasting
     $password = trim($_POST["password"]);
     if($username !== "" && $password !== "") {
-      login($username, $password, $ip);
+      $error = login($username, $password, $ip);
     } else {
       $error = "Please fill in the required fields";
     }
